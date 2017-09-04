@@ -33,14 +33,14 @@ public class parse
                               if(Vowel(line.charAt(i)))
                               {
                                     syllable++;
-                                    if(Vowel(line.charAt(i+1)))
+                              /*      if(Vowel(line.charAt(i+1)))
                                           count = true;
                               }
                               if(count == true)
                               {
                                     syllable--;
                                     count = false;
-                              }
+                             */ }
                               //Checks if the word ends with an e
                               if(i == line.length()-1 && line.charAt(i) == 'e')
                                     syllable--;
@@ -63,7 +63,7 @@ public class parse
       //Method that checks all vowels and returns true if is a vowel
       public static boolean Vowel(char v)
       {
-            if(v == 'a' || v == 'e' || v == 'i' || v == 'o'|| v == 'u' || v == 'y')
+            if(v == 'a' || v == 'e' || v == 'i' || v == 'o' || v == 'u' || v == 'y' || v == 'A' || v == 'E' || v == 'I' || v == 'O' || v == 'U' || v == 'Y')
                   return true;
             else
                   return false;
