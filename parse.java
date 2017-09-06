@@ -11,7 +11,7 @@ public class parse
             int word = 0;
             int syllable = 0;
             int sentence = 0;
-            boolean count = false;
+            int vcount = 0;
             String line;
             try
             {
@@ -38,19 +38,22 @@ public class parse
                                     syllable++;
                                     if(i < line.length()-1 && Vowel(line.charAt(i+1)))
                                     {
-                                          count = true;
+                                          syllable--;
                                     }
-                              }
-                              if(count == true)
-                              {
-                                    syllable--;
-                                    count = false;
+                                    vcount++;
                               }
                               //Checks if the word ends with an e
-                              if(i == line.length()-1 && line.charAt(i) == 'e')
+                              if(i == line.length()-1 && line.charAt(i) == 'e' && vcount > 1)
+                              {
                                     syllable--;
+                                    vcount = 0;
+                              }
+                              //Checks for sentences
                               if(Sentence(line.charAt(i)))
                                     sentence++;
+                              //Resets vowel count
+                              if(i == line.length()-1)
+                                    vcount = 0;
                         }
                   }
                   file.close();
@@ -60,8 +63,8 @@ public class parse
             //System.out.println(alpha);
             //System.out.println(beta);
             //Formulas for calculating index and grade
-            int index = (int) (206.835-(alpha*84.6)-(beta*1.015));
-            double grade = Math.round(((alpha * 11.8) + (beta * 0.39) - 15.59));
+            int index = (int) Math.round((206.835-(alpha*84.6)-(beta*1.015))*1)/1;
+            double grade = Math.round(((alpha * 11.8) + (beta * 0.39) - 15.59)*10.0)/10.0;
             //System.out.println("Number of words in file: " + word);
             //System.out.println("Number of sentences: " + sentence);
             //System.out.println("Number of syllables: " + syllable);
