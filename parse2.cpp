@@ -45,13 +45,13 @@ int main(int argc,char* argv[])
                   if(Vowel(line[i]))
                   {
                         syllable++;
-                        if(i < line.size()-1 && Vowel(line[i]))
+                        if(i < line.size()-1 && Vowel(line[i+1]))
                         {
                               syllable--;
                         }
                         vcount++;
-                        cout << line[i] << endl;
-                        cout << syllable <<endl;
+                        //cout << line[i] << endl;
+                        //cout << syllable <<endl;
                   }
                   //Checks if the word ends with an e
                   if(i == line.size()-1 && line[i] == 'e' && vcount > 1)
