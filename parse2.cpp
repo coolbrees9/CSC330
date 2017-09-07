@@ -75,9 +75,9 @@ int main(int argc,char* argv[])
       //Formulas for calculating index and grade
       int index = (int) (206.835-(alpha*84.6)-(beta*1.015));
       double grade = (((alpha * 11.8) + (beta * 0.39) - 15.59));
-      cout << "Number of words in file: " << word << endl;
-      cout << "Number of sentences: " << sentence << endl;
-      cout << "Number of syllables: " << syllable << endl;
+      //cout << "Number of words in file: " << word << endl;
+      //cout << "Number of sentences: " << sentence << endl;
+      //cout << "Number of syllables: " << syllable << endl;
       cout << "Flesch Index: " << index << endl;
       cout << "Flesch Grade: " << setprecision(1) << fixed << grade << endl;
       return 0;
