@@ -1,5 +1,5 @@
 For java: enter java parse "filename"
 
-For c++: enter a.out parse2 "filename"
+For c++: enter a.out "filename"
 
 For perl: enter parse3.pl "filename"
