@@ -15,11 +15,10 @@ foreach $line (<FILE>)
       #Checks for vowels
       foreach ($line)
       {
-            if(/\b[^aeiouy]*a[^aeiouy]*e[^aeiouy]*i[^aeiouy]*o[^aeiouy]*u[^aeiouy]*y[^aeiouy]*\b/i)
+            if($ch eq "a" ||)
             {
                   $syllable++;
             }
-            #$syllable += @vowel = $v =~ /a.*e.*i.*o.*u.*y/;
       }
 }
 close(FILE);
