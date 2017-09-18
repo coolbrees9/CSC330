@@ -4,8 +4,10 @@ use POSIX;
 my $filename = $ARGV[0];
 my($word,$syllable,$sentence) = (0,0,0);
 open(FILE, "+<$filename") or die "Could not open file: '$filename' $!";
-my ($ch,$line);
-foreach $line (<FILE>)
+@vowels = ("a","e","i","o","u","y");
+my ($line);
+@ch = <FILE>;
+foreach $line (@ch)
 {
       chomp($line);
       #Checks the number of words in file
@@ -13,13 +15,14 @@ foreach $line (<FILE>)
       #Checks for any punctuation on the line
       $sentence += @punct = $line =~ /[.!?;:]+/g;
       #Checks for vowels
-      foreach ($line)
-      {
-            if($ch eq "a" ||)
+            if($line =~ /a/ || $line =~ /e/ || $line =~ /i/ || $line =~ /o/ || $line =~ /u/ || $line =~ /y/)
             {
                   $syllable++;
             }
-      }
+            elsif($line =~ /A/ || $line =~ /E/ || $line =~ /I/ || $line =~ /O/ || $line =~ /U/ || $line =~ /Y/)
+            {
+                  $syllable++;
+            }
 }
 close(FILE);
 $alpha = $syllable/$word;
