@@ -4,25 +4,31 @@ use POSIX;
 my $filename = $ARGV[0];
 my($word,$syllable,$sentence) = (0,0,0);
 open(FILE, "+<$filename") or die "Could not open file: '$filename' $!";
-@vowels = ("a","e","i","o","u","y");
+@vowels = ("a","e","i","o","u","y","A","E","I","O","U","Y");
 my ($line);
-@ch = <FILE>;
-foreach $line (@ch)
+@line = <FILE>;
+foreach $ch (@line)
 {
-      chomp($line);
       #Checks the number of words in file
-      $word += scalar(split(/\W+/, $line));
+      $word += scalar(split(/\W+/, $ch));
       #Checks for any punctuation on the line
-      $sentence += @punct = $line =~ /[.!?;:]+/g;
+      $sentence += @punct = $ch =~ /[.!?;:]+/g;
       #Checks for vowels
-            if($line =~ /a/ || $line =~ /e/ || $line =~ /i/ || $line =~ /o/ || $line =~ /u/ || $line =~ /y/)
+      foreach (split //,$ch)
+      {
+            if($ch =~ "a" && $ch =~ "e" && $ch =~ "i" && $ch =~ "o" && $ch =~ "u" && $ch =~ "y")
+            {
+                  $syllable++;
+                  if($ch+1 =~ "a" && $ch+1 =~ "e" && $ch+1 =~ "i" && $ch+1 =~ "o" && $ch+1 =~ "u" && $ch+1 =~ "y")
+                  {
+                        $syllable--;
+                  }
+            }
+            elsif($ch =~ "A" && $ch =~ "E" && $ch =~ "I" && $ch =~ "O" && $ch =~ "U" && $ch =~ "Y")
             {
                   $syllable++;
             }
-            elsif($line =~ /A/ || $line =~ /E/ || $line =~ /I/ || $line =~ /O/ || $line =~ /U/ || $line =~ /Y/)
-            {
-                  $syllable++;
-            }
+      }
 }
 close(FILE);
 $alpha = $syllable/$word;
