@@ -1,5 +1,9 @@
-For java: enter java parse "filename"
+For java: Compile- javac parse.java Run- java parse "filename"
 
-For c++: enter a.out "filename"
+For c++: Compile- c++ parse2.cpp Run- a.out "filename"
 
-For perl: enter parse3.pl "filename"
+For perl: Compile and Run- parse3.pl "filename"
+
+For fortran: Compile- gfortran parse4.f90 Run- a.out "filename"
+
+For Ada: Compile- gnatmake -f flesch.adb Run- flesch "filename"
