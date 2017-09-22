@@ -1,4 +1,4 @@
-program reader
+program flesch
 implicit none
 
 integer::filesize
@@ -42,8 +42,10 @@ print*,"Sentences: ", nsentence
 print*,"Syllables: ", nsyllable
 print*,"Index: ", findex
 print*,"Grade: ", grade
-
-end program reader
+end countWords
+end countSentence
+end countSyllable
+end program flesch
 !Subroutine that counts words
 subroutine countWords(string, word)
 character(LEN=*)::string
