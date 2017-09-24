@@ -12,14 +12,15 @@ isWord :boolean:= false;
 alpha, beta, index, grade :Float;
 arg :String(1..25);
 --Function that will get the command line file entered
-function Argument(Number : in Positive) return String is
-begin
-      return arg;
-end Argument;
+--function Argument(Number : in Positive) return String is
+--begin
+ --     return arg;
+--end Argument;
 
 begin
-arg := Argument(1);
-Put_Line(Item=>arg);
+--arg := Argument(1);
+--Put_Line(Item=>arg);
+Put(Argument(1));
 --Put_Line(Item => CLI.Argument(Number => 1));
 Open(File=>In_File,Mode=>Ada.Text_IO.In_File,Name=>"KJV.txt");
 
