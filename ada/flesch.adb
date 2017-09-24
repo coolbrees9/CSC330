@@ -12,12 +12,15 @@ isWord :boolean:= false;
 alpha, beta, index, grade :Float;
 arg :String(1..25);
 --Function that will get the command line file entered
---function Argument(Number : in Positive) return String is
---begin
---      return arg;
---end Argument;
---
+function Argument(Number : in Positive) return String is
 begin
+      return arg;
+end Argument;
+
+begin
+arg := Argument(1);
+Put_Line(Item=>arg);
+--Put_Line(Item => CLI.Argument(Number => 1));
 Open(File=>In_File,Mode=>Ada.Text_IO.In_File,Name=>"KJV.txt");
 
 pos:= 0;
@@ -27,7 +30,7 @@ while not End_of_File(In_File) loop
       string_array(pos):=value;
       if(End_of_File(In_File)) then
             pos := pos + 1;
-            string_array(pos) := Character'Val(10);
+            string_array(pos) := Character'Val(10);  --Takes next line as a space using the ASCII for newline
             pos := pos + 1;
       end if;
 end loop;
