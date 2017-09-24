@@ -10,19 +10,10 @@ pos :Integer;
 word, sentence, syllable :Float:= 0.0;
 isWord :boolean:= false;
 alpha, beta, index, grade :Float;
-arg :String(1..25);
---Function that will get the command line file entered
---function Argument(Number : in Positive) return String is
---begin
- --     return arg;
---end Argument;
 
 begin
---arg := Argument(1);
---Put_Line(Item=>arg);
-Put(Argument(1));
---Put_Line(Item => CLI.Argument(Number => 1));
-Open(File=>In_File,Mode=>Ada.Text_IO.In_File,Name=>"KJV.txt");
+--Opens the file from the command line
+Open(File=>In_File,Mode=>Ada.Text_IO.In_File,Name=>Argument(1));
 
 pos:= 0;
 while not End_of_File(In_File) loop
