@@ -1,3 +1,4 @@
+//This program will go through the file entered at the command line and give the flesh index and grade
 #include<iostream>
 #include<iomanip>
 #include<string>
@@ -10,6 +11,7 @@ static bool Sentence(char s);
 static bool Number(char l);
 int main(int argc,char* argv[])
 {
+      //If no arg is entered, goes here
       if(argc <= 1)
       {
             cout<< "Must choose a file" << endl;
@@ -26,7 +28,7 @@ int main(int argc,char* argv[])
       string filename = argv[1];
       infile.open(filename.c_str());
       getline(infile, line);
-      //stringstream file(line);
+      //Goes through the entire file
       while(!infile.eof())
       {
             infile >> line;
@@ -45,13 +47,12 @@ int main(int argc,char* argv[])
                   if(Vowel(line[i]))
                   {
                         syllable++;
+                        //Checks if adjacent letter is a vowel
                         if(i < line.size()-1 && Vowel(line[i+1]))
                         {
                               syllable--;
                         }
                         vcount++;
-                        //cout << line[i] << endl;
-                        //cout << syllable <<endl;
                   }
                   //Checks if the word ends with an e
                   if(i == line.size()-1 && line[i] == 'e' && vcount > 1)
@@ -79,7 +80,7 @@ int main(int argc,char* argv[])
       //cout << "Number of sentences: " << sentence << endl;
       //cout << "Number of syllables: " << syllable << endl;
       cout << "Flesch Index: " << index << endl;
-      cout << "Flesch Grade: " << setprecision(1) << fixed << grade << endl;
+      cout << "Flesch Grade: " << setprecision(1) << fixed << grade << endl;  //Rounds the variable to one place
       return 0;
 }
 //Method that checks all vowels and returns true if is a vowel
@@ -98,6 +99,7 @@ static bool Sentence(char s)
       else 
             return false;
 }
+//Method for checking if character is number
 static bool Number(char l)
 {     
       if(l == '0' || l == '1' || l == '2' || l == '3' || l == '4' || l == '5' || l == '6' || l == '7' || l == '8' || l == '9')
