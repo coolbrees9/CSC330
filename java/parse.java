@@ -1,3 +1,4 @@
+//This program will take the Flesch index and grade of the file that is put into the command line
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -18,8 +19,10 @@ public class parse
                   //Goes into the file entered
                   File input = new File(args[0]);
                   Scanner file = new Scanner(input);
+                  //Loop to go through entire file
                   while(file.hasNext())
                   {
+                        //Gets rid of whitespace
                         line = file.next().trim();
                         word++;
                         //For loop to go through length of a word and count # of syllables
@@ -36,6 +39,7 @@ public class parse
                               if(Vowel(line.charAt(i)))
                               {
                                     syllable++;
+                                    //Checks if vowel is adjacent to another vowel
                                     if(i < line.length()-1 && Vowel(line.charAt(i+1)))
                                     {
                                           syllable--;
@@ -87,6 +91,7 @@ public class parse
             else 
                   return false;
       }
+      //Method to check for numbers
       public static boolean Number(char l)
       {
             if(l == '0' || l == '1' || l == '2' || l == '3' || l == '4' || l == '5' || l == '6' || l == '7' || l == '8' || l == '9')
