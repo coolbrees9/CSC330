@@ -26,8 +26,8 @@ while not End_of_File(In_File) loop
       string_array(pos):=value;
       if(End_of_File(In_File)) then
             pos := pos + 1;
-            --string_array(pos) := Character'Val(10);  --Takes next line as a space using the ASCII for newline
-            --pos := pos + 1;
+            string_array(pos) := Character'Val(10);  --Takes next line as a space using the ASCII for newline
+            pos := pos + 1;
       end if;
 end loop;
 
