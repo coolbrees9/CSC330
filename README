@@ -6,4 +6,5 @@ For perl: Compile and Run- parse3.pl "filename"
 
 For fortran: Compile- gfortran parse4.f90 Run- a.out "filename"
 
-For Ada: Compile- gnatmake -f flesch.adb Run- flesch "filename"
+For Ada: Must use dos2unix command for the txt files. 
+    Compile- gnatmake -f flesch.adb Run- flesch "filename"
